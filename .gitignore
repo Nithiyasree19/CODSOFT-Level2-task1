@@ -1,0 +1,15 @@
+#node_modules to be ignored
+job-board/node_modules/
+job-board-backend/node_modules/
+
+#sensitive data to be ignored
+job-board/.env
+job-board-backend/.env
+
+#build directories to be ignored
+dist/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
