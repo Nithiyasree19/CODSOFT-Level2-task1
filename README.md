@@ -67,13 +67,13 @@ npm install
 # GMAIL_USER=...
 # GMAIL_PASS=...
 npm run dev
-
+```
 ### 2. Frontend Setup
-
+```bash
 cd job-board
 npm install
 npm start
-
+```
 
 ---
 
