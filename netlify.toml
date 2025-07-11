@@ -1,6 +1,6 @@
 [build]
   base    = "job-board"
-  publish = "job-board/build"
+  publish = "build"
   command = "npm run build"
 
 [build.environment]
