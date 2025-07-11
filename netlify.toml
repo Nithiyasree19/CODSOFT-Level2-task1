@@ -1,0 +1,7 @@
+[build]
+  base    = "job-board"
+  publish = "job-board/build"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
