@@ -5,9 +5,10 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
-let resetTokens = {}; // Temporary in-memory store for reset tokens
+// Temporary in-memory store for password reset tokens
+let resetTokens = {};
 
-// Register
+// Register User
 router.post('/register', async (req, res) => {
   const { name, email, password, role } = req.body;
   try {
@@ -16,7 +17,7 @@ router.post('/register', async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
-    console.error(err);
+    console.error('Registration Error:', err);
     res.status(500).json({ message: 'Registration failed' });
   }
 });
@@ -33,12 +34,12 @@ router.post('/login', async (req, res) => {
 
     res.json({ message: 'Login successful', role: user.role });
   } catch (err) {
-    console.error("Login error:", err);
+    console.error("Login Error:", err);
     res.status(500).json({ message: 'Login failed' });
   }
 });
 
-//Forgot Password 
+// Forgot Password - Send Reset Link via Email
 router.post('/forgot-password', async (req, res) => {
   const { email } = req.body;
   try {
@@ -53,25 +54,34 @@ router.post('/forgot-password', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,     //project email
-        pass: process.env.EMAIL_PASS,           // app password
+        user: process.env.EMAIL_USER,     // Project mail
+        pass: process.env.EMAIL_PASS,     // Project mail password
       },
     });
+
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? 'Exists' : 'Missing');
+    console.log("Reset Link:", resetLink);
 
     await transporter.sendMail({
       to: email,
       subject: 'Job Board Password Reset',
-      html: `<p>Click below to reset your password:</p><a href="${resetLink}">${resetLink}</a>`,
+      html: `
+        <h3>Password Reset</h3>
+        <p>Click the link below to reset your password:</p>
+        <a href="${resetLink}">${resetLink}</a>
+        <p>This link will expire after one use.</p>
+      `,
     });
 
     res.json({ message: 'Reset link sent to email' });
   } catch (err) {
-    console.error(err);
+    console.error("Error while sending reset email:", err);
     res.status(500).json({ message: 'Error sending email' });
   }
 });
 
-// 🔁 Reset Password
+// Reset Password - Update Password via Token
 router.post('/reset-password/:token', async (req, res) => {
   const { token } = req.params;
   const { newPassword } = req.body;
@@ -82,9 +92,10 @@ router.post('/reset-password/:token', async (req, res) => {
   try {
     const hashed = await bcrypt.hash(newPassword, 10);
     await User.findOneAndUpdate({ email }, { password: hashed });
-    delete resetTokens[token];
+    delete resetTokens[token]; // delete token after use
     res.json({ message: 'Password reset successful' });
   } catch (err) {
+    console.error("Reset Error:", err);
     res.status(500).json({ message: 'Failed to reset password' });
   }
 });

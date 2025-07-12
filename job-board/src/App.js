@@ -10,6 +10,9 @@ import EmployerDashboard from './pages/EmployerDashboard';
 import CandidateDashboard from './pages/CandidateDashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+
 
 //const Home = () => <h2 className="text-center mt-5">Welcome to Job Board!</h2>;
 //const PostJob = () => <h2 className="text-center mt-5">Post a New Job</h2>;
@@ -30,6 +33,8 @@ function App() {
         <Route path="/candidate" element={<CandidateDashboard/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
     </Router>
   );
