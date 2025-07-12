@@ -80,8 +80,8 @@ npm start
 ## Deployment Links
 
 
- Frontend (Netlify): your-frontend-url
- Backend (Render): your-backend-url
+ Frontend (Netlify): 
+ Backend (Render): 
 
 
 ---
@@ -92,3 +92,8 @@ npm start
 **Batch:** BATCHB38 
 **CODSOFT Web Development Internship – July 2025
 **
+
+
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b9013e05-86b9-467f-aa72-6a973cd8943e" />
+
