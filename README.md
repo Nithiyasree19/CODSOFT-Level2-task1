@@ -80,7 +80,7 @@ npm start
 ## Deployment Links
 
 
- Frontend (Netlify): 
+ Frontend (Netlify): https://jobboard2k.netlify.app
  Backend (Render): 
 
 
