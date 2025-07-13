@@ -1,7 +1,7 @@
 import { Router } from 'express';
 const express = require('express');
 const router = express.Router();
-import User, { findOne, findOneAndUpdate } from '../models/User.js';
+import User from '../models/User.js';
 import { hash, compare } from 'bcrypt';
 import { createTransport } from 'nodemailer';
 import { randomBytes } from 'crypto';
