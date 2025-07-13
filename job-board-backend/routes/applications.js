@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Application = require('../models/Application');
+const Application = require('../models/Application.js');
 
 // GET /api/applications — fetch all submitted applications
 router.get('/', async (req, res) => {

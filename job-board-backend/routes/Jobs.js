@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Job = require('../models/job');
+const Job = require('../models/job.js');
 
 // POST a new job
 router.post('/', async (req, res) => {
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
 // GET all jobs
 router.get('/', async (req, res) => {
   try {
-    const jobs = await Job.find(); // ✅ get all jobs
+    const jobs = await Job.find(); //get all jobs
     res.json(jobs);
   } catch (err) {
     console.error("Failed to fetch jobs:", err);
