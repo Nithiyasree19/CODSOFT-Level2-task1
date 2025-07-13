@@ -11,8 +11,10 @@ let resetTokens = {};
 // Register User
 router.post('/register', async (req, res) => {
   const { name, email, password, role } = req.body;
+  console.log("Registering user:", { name, email, role });
+
   try {
-    const hashedPassword = await hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ name, email, password: hashedPassword, role });
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
