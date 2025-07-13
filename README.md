@@ -80,7 +80,7 @@ npm start
 ## Deployment Links
 
 
- Frontend (Netlify): 
+ Frontend (Netlify): https://jobboard2k.netlify.app
  Backend (Render): 
 
 
@@ -89,6 +89,7 @@ npm start
 ## Author
 
 **Nithiyasree M**
+
 **Batch:** BATCHB38 
 **CODSOFT Web Development Internship – July 2025
 **
