@@ -1,10 +1,9 @@
-import { Router } from 'express';
 const express = require('express');
 const router = express.Router();
-import User from '../models/User.js';
-import { hash, compare } from 'bcrypt';
-import { createTransport } from 'nodemailer';
-import { randomBytes } from 'crypto';
+const User = require('../models/User');
+const bcrypt = require('bcrypt');
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 // Temporary in-memory store for password reset tokens
 let resetTokens = {};
