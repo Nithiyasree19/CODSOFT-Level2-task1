@@ -4,16 +4,6 @@ This project is built as part of **CODSOFT Web Development Internship – Level 
 
 ---
 
-## Project Structure
-
-CODSOFT/Job Board/
-├─ job-board/ # Frontend (React)
-├─ job-board-backend/ # Backend (Node.js + Express)
-├─ README.md # You are here
-
-
----
-
 ## Tech Stack
 
 ### Frontend:
