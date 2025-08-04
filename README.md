@@ -55,28 +55,6 @@ CODSOFT/Job Board/
 
 ---
 
-## Setup Instructions
-
-### 1. Backend Setup
-
-```bash
-cd job-board-backend
-npm install
-# Create a .env file with:
-# MONGO_URI=...
-# GMAIL_USER=...
-# GMAIL_PASS=...
-npm run dev
-```
-### 2. Frontend Setup
-```bash
-cd job-board
-npm install
-npm start
-```
-
----
-
 ## Deployment Links
 
 
